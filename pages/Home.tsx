@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, PlayCircle, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { MOCK_PRODUCTS, EXTERNAL_LINKS, SOCIAL_LINKS, BRAND_STATEMENT, STRATEGIC_WEALTH_IMAGE } from '../constants';
 import ProductCard from '../components/ProductCard';
+import BlogPreview from '../components/BlogPreview';
 
 const Home: React.FC = () => {
   const featuredProducts = MOCK_PRODUCTS.slice(0, 3);
-  
+
   const pillars = [
     {
       title: "Real Estate & Property Sales",
@@ -79,9 +80,9 @@ const Home: React.FC = () => {
           {pillars.map((pillar, idx) => (
             <div key={idx} className="group p-0 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={pillar.image} 
-                  alt={pillar.title} 
+                <img
+                  src={pillar.image}
+                  alt={pillar.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -119,7 +120,7 @@ const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-20">
           <div className="lg:w-1/2 order-2 lg:order-1">
-            <h2 className="text-4xl font-extrabold text-slate-900 mb-8 italic leading-tight">Professional Integrity. <br/>Global Standards.</h2>
+            <h2 className="text-4xl font-extrabold text-slate-900 mb-8 italic leading-tight">Professional Integrity. <br />Global Standards.</h2>
             <div className="space-y-8">
               {[
                 { title: "Partner-Led Advisory", text: "Senior-level strategic oversight on every client engagement ensures accountability and expertise." },
@@ -153,9 +154,9 @@ const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-slate-900 rounded-[2.5rem] p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 overflow-hidden relative min-h-[500px]">
           <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=1200" 
-              alt="Podcast Background" 
+            <img
+              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=1200"
+              alt="Podcast Background"
               className="w-full h-full object-cover opacity-30"
             />
           </div>
@@ -181,6 +182,8 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <BlogPreview />
 
       {/* CTA Section */}
       <section className="text-center py-24 bg-indigo-50 border-y border-indigo-100">

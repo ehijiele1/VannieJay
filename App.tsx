@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPreview from './components/BlogPreview';
 import AIAssistant from './components/AIAssistant';
+import { HelmetProvider } from 'react-helmet-async';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -22,27 +23,24 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Home />
-              <BlogPreview />
-            </>
-          } />
-          <Route path="/about" element={<About />} />
-          <Route path="/investment-solutions" element={<InvestmentSolutions />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
-      </Layout>
-      <AIAssistant />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/investment-solutions" element={<InvestmentSolutions />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+          </Routes>
+        </Layout>
+        <AIAssistant />
+      </Router>
+    </HelmetProvider>
   );
 };
 
