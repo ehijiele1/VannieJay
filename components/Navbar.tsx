@@ -15,6 +15,7 @@ const Navbar: React.FC = () => {
     { name: 'Products', path: '/products' },
     { name: 'Services', path: '/services' },
     { name: 'Resources', path: '/resources' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -35,9 +36,8 @@ const Navbar: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-indigo-600 ${
-                  isActive(item.path) ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-600'
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-indigo-600 ${isActive(item.path) ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-600'
+                  }`}
               >
                 {item.name}
               </Link>
@@ -70,11 +70,10 @@ const Navbar: React.FC = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`block pl-3 pr-4 py-2 text-base font-medium ${
-                  isActive(item.path)
+                className={`block pl-3 pr-4 py-2 text-base font-medium ${isActive(item.path)
                     ? 'text-indigo-600 bg-indigo-50 border-l-4 border-indigo-600'
                     : 'text-slate-600 hover:bg-slate-50 border-l-4 border-transparent'
-                }`}
+                  }`}
               >
                 {item.name}
               </Link>
