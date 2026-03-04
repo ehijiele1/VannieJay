@@ -7,6 +7,7 @@ interface Post {
   id: string;
   title: string;
   brief: string;
+  slug: string;
   url: string;
   publishedAt: string;
   readTimeInMinutes: number;
@@ -54,7 +55,7 @@ function BlogPreview() {
               key={post.id}
               className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col"
             >
-              <a href={post.url} target="_blank" rel="noopener noreferrer" className="block relative h-52 overflow-hidden">
+              <Link to={`/blog/${post.slug}`} className="block relative h-52 overflow-hidden">
                 {post.coverImage?.url ? (
                   <img
                     src={post.coverImage.url}
@@ -67,7 +68,7 @@ function BlogPreview() {
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              </Link>
 
               <div className="p-8 flex flex-col flex-1">
                 <div className="flex items-center gap-4 text-slate-500 text-xs font-medium mb-4">
@@ -82,9 +83,9 @@ function BlogPreview() {
                 </div>
 
                 <h3 className="text-xl font-bold mb-4 text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-2">
-                  <a href={post.url} target="_blank" rel="noopener noreferrer">
+                  <Link to={`/blog/${post.slug}`}>
                     {post.title}
-                  </a>
+                  </Link>
                 </h3>
 
                 <p className="text-slate-600 text-[15px] leading-relaxed mb-8 line-clamp-3">
@@ -92,14 +93,12 @@ function BlogPreview() {
                 </p>
 
                 <div className="mt-auto">
-                  <a
-                    href={post.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to={`/blog/${post.slug}`}
                     className="text-indigo-600 font-bold inline-flex items-center gap-2 group-hover:gap-3 transition-all"
                   >
                     Read Full Story <ArrowRight size={18} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>

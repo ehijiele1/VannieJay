@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import BlogPreview from './components/BlogPreview';
 import AIAssistant from './components/AIAssistant';
 import { HelmetProvider } from 'react-helmet-async';
@@ -36,6 +37,7 @@ const App: React.FC = () => {
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </Layout>
         <AIAssistant />

@@ -11,6 +11,54 @@ export interface Post {
   publishedAt: string;
   readTimeInMinutes: number;
   coverImage?: { url: string };
+  content?: {
+    html: string;
+    markdown: string;
+  };
+}
+
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  const query = `
+    query PostDetails {
+      publication(host: "${PUBLICATION_HOST}") {
+        post(slug: "${slug}") {
+          id
+          title
+          brief
+          slug
+          url
+          publishedAt
+          readTimeInMinutes
+          coverImage { url }
+          content {
+            html
+            markdown
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await fetch(HASHNODE_API, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': HASHNODE_KEY || ''
+      },
+      body: JSON.stringify({ query })
+    });
+
+    const json = await response.json();
+    if (json.errors) {
+      console.error('Hashnode API errors:', json.errors);
+      return null;
+    }
+    return json.data?.publication?.post || null;
+  } catch (error) {
+    console.error('Error fetching post by slug:', error);
+    return null;
+  }
 }
 
 export async function getPosts(first: number = 10): Promise<Post[]> {
