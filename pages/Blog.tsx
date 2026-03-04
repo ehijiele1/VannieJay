@@ -48,7 +48,7 @@ export default function Blog() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {posts.map((post) => (
                         <article key={post.id} className="group bg-white rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100 flex flex-col">
-                            <a href={post.url} target="_blank" rel="noopener noreferrer" className="block relative h-64 overflow-hidden">
+                            <Link to={`/blog/${post.slug}`} className="block relative h-64 overflow-hidden">
                                 {post.coverImage?.url ? (
                                     <img
                                         src={post.coverImage.url}
@@ -61,7 +61,7 @@ export default function Blog() {
                                     </div>
                                 )}
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </a>
+                            </Link>
 
                             <div className="p-10 flex flex-col flex-1">
                                 <div className="flex items-center gap-4 text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-6">
@@ -76,9 +76,9 @@ export default function Blog() {
                                 </div>
 
                                 <h2 className="text-2xl font-bold mb-4 text-slate-900 group-hover:text-indigo-600 transition-colors leading-tight line-clamp-2">
-                                    <a href={post.url} target="_blank" rel="noopener noreferrer">
+                                    <Link to={`/blog/${post.slug}`}>
                                         {post.title}
-                                    </a>
+                                    </Link>
                                 </h2>
 
                                 <p className="text-slate-600 text-base leading-relaxed mb-10 line-clamp-3 font-light">
@@ -86,14 +86,12 @@ export default function Blog() {
                                 </p>
 
                                 <div className="mt-auto flex justify-between items-center">
-                                    <a
-                                        href={post.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <Link
+                                        to={`/blog/${post.slug}`}
                                         className="inline-flex items-center gap-2 text-indigo-600 font-bold group-hover:gap-4 transition-all"
                                     >
                                         Read Full Article <ArrowRight size={20} />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </article>
