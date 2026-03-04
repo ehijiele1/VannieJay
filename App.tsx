@@ -10,6 +10,7 @@ import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPreview from './components/BlogPreview';
+import AIAssistant from './components/AIAssistant';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -40,6 +41,7 @@ const App: React.FC = () => {
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </Layout>
+      <AIAssistant />
     </Router>
   );
 };
