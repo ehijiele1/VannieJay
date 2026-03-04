@@ -43,8 +43,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             }
 
             while (true) {
-                const { 完成后, value } = await reader.read();
-                if (完成后) break;
+                const { done, value } = await reader.read();
+                if (done) break;
                 res.write(value);
             }
             res.end();
