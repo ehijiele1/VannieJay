@@ -42,6 +42,23 @@ const AIAssistant: React.FC = () => {
                 }),
             });
 
+            if (!response.ok) {
+                const errorText = await response.text();
+                let errorMessage = `Server error (${response.status})`;
+                try {
+                    const errorData = JSON.parse(errorText);
+                    errorMessage = errorData.message || errorMessage;
+                } catch (e) {
+                    // Not JSON, use status
+                }
+
+                setMessages(prev => [...prev, {
+                    role: 'assistant',
+                    content: `Error: ${errorMessage}. If you are running locally, try using 'npx vercel dev' instead of 'npm run dev'.`
+                }]);
+                return;
+            }
+
             const data = await response.json();
 
             if (data.error) {
@@ -58,7 +75,7 @@ const AIAssistant: React.FC = () => {
         } catch (error) {
             setMessages(prev => [...prev, {
                 role: 'assistant',
-                content: "Sorry, I'm having trouble connecting to the AI service right now."
+                content: "Connection failed. Please ensure you are running the development server correctly (try 'npx vercel dev')."
             }]);
         } finally {
             setIsLoading(false);
