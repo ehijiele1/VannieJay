@@ -95,9 +95,26 @@ const AIAssistant: React.FC = () => {
                 {/* Messages */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
                     {messages.length === 0 && (
-                        <div className="text-center text-slate-500 mt-10 px-6">
+                        <div className="text-center text-slate-500 mt-6 px-6">
                             <Bot size={40} className="mx-auto mb-4 opacity-20" />
-                            <p className="text-sm">Hi! I'm the VannieJay assistant. Ask me anything about real estate, investments, or our services.</p>
+                            <p className="text-sm mb-6">Hi! I'm your VannieJay Strategic Assistant. How can I help you build wealth today?</p>
+
+                            <div className="grid grid-cols-1 gap-2">
+                                {[
+                                    "Tell me about RentFlex (USA)",
+                                    "Investment opportunities in Lagos",
+                                    "Palm oil investment in Ogun",
+                                    "How can I work with VannieJay?"
+                                ].map((suggestion, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setInput(suggestion)}
+                                        className="text-[11px] text-left p-2.5 bg-white border border-slate-200 rounded-xl hover:border-indigo-600 hover:text-indigo-600 transition-all shadow-sm"
+                                    >
+                                        {suggestion}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     )}
                     {messages.map((msg, idx) => (
