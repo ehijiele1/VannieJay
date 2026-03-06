@@ -47,7 +47,7 @@ const AIAssistant: React.FC = () => {
             if (data.error) {
                 setMessages(prev => [...prev, {
                     role: 'assistant',
-                    content: `Error: ${data.message || 'Could not connect to Ollama. Make sure it is running.'}`
+                    content: `Error: ${data.message || 'The AI service is currently unavailable. Please check the connection or provider setup.'}`
                 }]);
             } else {
                 setMessages(prev => [...prev, {
@@ -107,8 +107,8 @@ const AIAssistant: React.FC = () => {
                         >
                             <div
                                 className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.role === 'user'
-                                        ? 'bg-indigo-600 text-white rounded-br-none'
-                                        : 'bg-white text-slate-800 border border-slate-200 rounded-bl-none shadow-sm'
+                                    ? 'bg-indigo-600 text-white rounded-br-none'
+                                    : 'bg-white text-slate-800 border border-slate-200 rounded-bl-none shadow-sm'
                                     }`}
                             >
                                 <div className="flex items-center gap-2 mb-1 opacity-70">
