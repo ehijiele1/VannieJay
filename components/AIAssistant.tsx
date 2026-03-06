@@ -47,7 +47,7 @@ const AIAssistant: React.FC = () => {
             if (data.error) {
                 setMessages(prev => [...prev, {
                     role: 'assistant',
-                    content: `Error: ${data.message || 'The AI service is currently unavailable. Please check the connection or provider setup.'}`
+                    content: `Error: ${data.message || 'The AI service is currently unavailable.'}`
                 }]);
             } else {
                 setMessages(prev => [...prev, {

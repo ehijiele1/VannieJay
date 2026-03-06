@@ -29,7 +29,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
-                return res.status(response.status).json({ error: 'Groq API error', details: errorData });
+                return res.status(response.status).json({
+                    error: 'Cloud AI Error',
+                    message: errorData.error?.message || `Groq returned status ${response.status}. Have you set a valid API key?`,
+                    details: errorData
+                });
             }
 
             if (stream) {
