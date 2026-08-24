@@ -4,20 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#111111">
-    <meta name="description" content="VannieJay — a clearer path to trusted opportunity across real estate, investments and strategic solutions.">
+    <meta name="description" content="VannieJay — a clearer path to trusted opportunity across real estate, investments and strategic services.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VannieJay | The Gateway to Opportunity">
+    <meta property="og:description" content="A clearer path to trusted opportunity.">
+    <meta property="og:url" content="https://www.vanniejay.com.ng/">
+    <meta name="twitter:card" content="summary_large_image">
     <title>VannieJay | The Gateway to Opportunity</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              vj: {
+                black: '#111111',
+                white: '#FFFFFF',
+                graphite: '#333333',
+                gray: '#777777',
+                light: '#F4F4F4',
+                gold: '#C8A24A'
+              }
+            },
+            fontFamily: { sans: ['Inter', 'sans-serif'] }
+          }
+        }
+      };
+    </script>
     <style>
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #FFFFFF; color: #111111; }
-        * { box-sizing: border-box; }
-        ::selection { background: #C8A24A; color: #111111; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; background: #FFFFFF; color: #111111; }
+      * { box-sizing: border-box; }
+      :focus-visible { outline: 2px solid #C8A24A; outline-offset: 3px; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      }
+      ::selection { background: #C8A24A; color: #111111; }
     </style>
 </head>
 <body>
     <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
