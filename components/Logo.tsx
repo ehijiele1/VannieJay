@@ -1,55 +1,57 @@
-
 import React from 'react';
 
 interface LogoProps {
   className?: string;
   light?: boolean;
+  symbolOnly?: boolean;
+  gold?: boolean;
 }
 
-const Logo: React.FC<LogoProps> = ({ className = "h-10", light = false }) => {
-  const color = light ? "white" : "black";
-  const textColor = light ? "#CBD5E1" : "#1E293B"; // slate-300 or slate-800
+/**
+ * VannieJay Threshold master mark.
+ * The geometry is locked to the approved Brand System v1.0.
+ */
+const Logo: React.FC<LogoProps> = ({
+  className = 'h-10',
+  light = false,
+  symbolOnly = false,
+  gold = false,
+}) => {
+  const color = gold ? '#C8A24A' : light ? '#FFFFFF' : '#111111';
 
   return (
-    <div className={`flex items-center justify-center ${className}`}>
-      <svg 
-        viewBox="0 0 400 200" 
-        fill="none" 
+    <div className={`flex items-center ${className}`} aria-label="VannieJay">
+      <svg
+        viewBox={symbolOnly ? '0 0 240 280' : '0 0 420 280'}
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="h-full w-auto"
+        role="img"
       >
-        {/* Large V and J Background */}
-        <text 
-          x="80" 
-          y="150" 
-          fill={color} 
-          style={{ font: 'italic 200px serif', opacity: 1 }}
-        >
-          V
-        </text>
-        <text 
-          x="220" 
-          y="150" 
-          fill={color} 
-          style={{ font: 'italic 200px serif', opacity: 1 }}
-        >
-          J
-        </text>
+        <g fill={color}>
+          <path d="M20 250V70L105 10v72L65 110v140H20Z" />
+          <path d="M220 250V70L135 10v72l40 28v140h45Z" />
+          {symbolOnly ? null : (
+            <>
+              <path d="M0 250h65v6H0z" />
+              <path d="M175 250h65v6h-65z" />
+            </>
+          )}
+        </g>
 
-        {/* Horizontal Line and Text Overlay Area */}
-        <rect x="0" y="94" width="120" height="2" fill={color} />
-        <rect x="280" y="94" width="120" height="2" fill={color} />
-        
-        {/* VANNIEJAY Text */}
-        <text 
-          x="200" 
-          y="102" 
-          fill={color} 
-          textAnchor="middle" 
-          style={{ font: 'bold 28px sans-serif', letterSpacing: '0.2em' }}
-        >
-          VANNIEJAY
-        </text>
+        {!symbolOnly && (
+          <text
+            x="120"
+            y="165"
+            fill={color}
+            fontFamily="Inter, Arial, sans-serif"
+            fontSize="30"
+            fontWeight="500"
+            letterSpacing="2.5"
+          >
+            VANNIEJAY
+          </text>
+        )}
       </svg>
     </div>
   );
