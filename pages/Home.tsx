@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, PlayCircle, MessageSquare, CheckCircle2 } from 'lucide-react';
@@ -6,210 +5,156 @@ import { MOCK_PRODUCTS, EXTERNAL_LINKS, SOCIAL_LINKS, BRAND_STATEMENT, STRATEGIC
 import ProductCard from '../components/ProductCard';
 import BlogPreview from '../components/BlogPreview';
 
+const pillars = [
+  {
+    title: 'Real Estate',
+    desc: 'Property opportunities presented with clear information on location, ownership, pricing and payment structure.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000',
+    path: '/products',
+  },
+  {
+    title: 'Investment Solutions',
+    desc: 'Investment opportunities explained clearly so clients can understand the proposition before making a decision.',
+    image: STRATEGIC_WEALTH_IMAGE,
+    path: '/investment-solutions',
+  },
+  {
+    title: 'Strategic Services',
+    desc: 'Practical business and technology support designed around the needs of individuals and organisations.',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1000',
+    path: '/services',
+  },
+];
+
 const Home: React.FC = () => {
   const featuredProducts = MOCK_PRODUCTS.slice(0, 3);
 
-  const pillars = [
-    {
-      title: "Real Estate & Property Sales",
-      desc: "Direct access to high-yield residential and commercial assets in Nigeria and the USA, secured through partner-led advisory.",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
-      path: "/services"
-    },
-    {
-      title: "Investment Solutions",
-      desc: "From land banking to build-to-profit schemes, we protect and grow your capital via verified, inflation-hedged instruments.",
-      image: STRATEGIC_WEALTH_IMAGE,
-      path: "/investment-solutions"
-    },
-    {
-      title: "Talent & Business Support",
-      desc: "Connecting global organizations with top-tier remote AI and tech professionals through strategic platform partnerships.",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
-      path: "/services"
-    }
-  ];
-
   return (
-    <div className="space-y-24 pb-20">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+    <main className="bg-white text-[#111111]">
+      <section className="relative isolate overflow-hidden bg-[#111111] text-white">
+        <div className="absolute inset-0 opacity-25">
           <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000"
-            alt="VannieJay Advisory Hero"
-            className="w-full h-full object-cover brightness-[0.35]"
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=160&w=2000"
+            alt=""
+            className="h-full w-full object-cover"
           />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/95 to-[#111111]/70" />
+        <div className="relative mx-auto flex min-h-[680px] max-w-7xl items-center px-4 py-24 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
-              Smart Real Estate & <span className="text-indigo-400">Investment</span> Solutions
+            <p className="mb-7 text-xs font-semibold uppercase tracking-[0.28em] text-[#C8A24A]">The Gateway to Opportunity</p>
+            <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+              A clearer path to trusted opportunity.
             </h1>
-            <p className="text-xl text-slate-200 mb-10 leading-relaxed font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/65 sm:text-xl">
               {BRAND_STATEMENT}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/products"
-                className="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all shadow-xl hover:scale-[1.02]"
-              >
-                Explore Opportunities <ArrowRight size={20} className="ml-2" />
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Link to="/products" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#111111] transition hover:bg-[#F4F4F4] focus:outline-none focus:ring-2 focus:ring-[#C8A24A] focus:ring-offset-2 focus:ring-offset-[#111111]">
+                Explore opportunities <ArrowRight size={18} />
               </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-lg transition-all border border-white/30"
-              >
-                Speak with an Advisor
+              <Link to="/contact" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#C8A24A] focus:ring-offset-2 focus:ring-offset-[#111111]">
+                Talk to VannieJay
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Pillars */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-indigo-600 font-bold tracking-widest uppercase text-sm">Enterprise Multi-Service Firm</span>
-          <h2 className="text-4xl font-extrabold text-slate-900 mt-2 mb-4 italic">Our Core Ecosystem</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-            We operate at the critical intersection of property, capital, and global talent to deliver sustainable growth.
-          </p>
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#777777]">What we do</p>
+          <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Solutions built around the problem.</h2>
+          <p className="mt-5 text-lg leading-8 text-[#777777]">VannieJay connects people with opportunities and services across our growing business ecosystem.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pillars.map((pillar, idx) => (
-            <div key={idx} className="group p-0 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={pillar.image}
-                  alt={pillar.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {pillars.map((pillar) => (
+            <article key={pillar.title} className="group overflow-hidden rounded-2xl border border-[#E5E5E5] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#C8A24A]/60 hover:shadow-[0_18px_50px_rgba(17,17,17,0.08)]">
+              <div className="h-52 overflow-hidden bg-[#F4F4F4]">
+                <img src={pillar.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
               </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-slate-900">{pillar.title}</h3>
-                <p className="text-slate-600 leading-relaxed mb-8">{pillar.desc}</p>
-                <Link to={pillar.path} className="text-indigo-600 font-bold inline-flex items-center hover:translate-x-1 transition-transform">
-                  Read Detailed Services <ArrowRight size={18} className="ml-2" />
+              <div className="p-7">
+                <h3 className="text-2xl font-semibold tracking-[-0.02em]">{pillar.title}</h3>
+                <p className="mt-3 min-h-20 text-sm leading-6 text-[#777777]">{pillar.desc}</p>
+                <Link to={pillar.path} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#111111] hover:text-[#C8A24A] focus:outline-none focus:ring-2 focus:ring-[#C8A24A]">
+                  Explore <ArrowRight size={16} />
                 </Link>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="bg-slate-100 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-              <h2 className="text-4xl font-extrabold text-slate-900 mb-4 italic">Investment Products</h2>
-              <p className="text-slate-600 text-lg">Current market-verified residential and commercial listings.</p>
+      <section className="border-y border-[#E5E5E5] bg-[#F4F4F4] py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#777777]">Featured opportunities</p>
+              <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em]">Worth understanding before you decide.</h2>
+              <p className="mt-4 text-lg leading-8 text-[#777777]">Browse current opportunities and review the details that matter.</p>
             </div>
-            <Link to="/products" className="px-8 py-3 bg-white text-slate-900 font-bold rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm">
-              View All Listings
-            </Link>
+            <Link to="/products" className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#111111] bg-white px-5 py-3 text-sm font-semibold transition hover:bg-[#111111] hover:text-white">View all</Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {featuredProducts.map(p => <ProductCard key={p.id} product={p} />)}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProducts.map((product) => <ProductCard key={product.id} product={product} />)}
           </div>
         </div>
       </section>
 
-      {/* Why Choose VannieJay - Text on Left, Brand Asset on Right */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
-          <div className="lg:w-1/2 order-2 lg:order-1">
-            <h2 className="text-4xl font-extrabold text-slate-900 mb-8 italic leading-tight">Professional Integrity. <br />Global Standards.</h2>
-            <div className="space-y-8">
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#777777]">Why VannieJay</p>
+            <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-[-0.03em] sm:text-5xl">Trust is built through clarity.</h2>
+            <p className="mt-6 text-lg leading-8 text-[#777777]">We aim to make complex opportunities easier to understand, evaluate and act on.</p>
+            <div className="mt-10 space-y-7">
               {[
-                { title: "Partner-Led Advisory", text: "Senior-level strategic oversight on every client engagement ensures accountability and expertise." },
-                { title: "Direct Asset Access", text: "We facilitate streamlined paths to premium residential and land-based assets across two continents." },
-                { title: "Referral-Driven Growth", text: "Our business scales through the trust of our partners. Referrals are always appreciated and rewarded." }
-              ].map((item, idx) => (
-                <div key={idx} className="flex gap-5">
-                  <div className="shrink-0">
-                    <CheckCircle2 size={28} className="text-indigo-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xl text-slate-900 mb-2">{item.title}</h4>
-                    <p className="text-slate-600 leading-relaxed text-lg">{item.text}</p>
-                  </div>
+                ['Clear information', 'We prioritise the details clients need to make informed decisions.'],
+                ['Customer satisfaction', 'Every engagement is designed around the client and the problem to be solved.'],
+                ['Long-term thinking', 'We are building a multi-sector African business with a long-term view.'],
+              ].map(([title, body]) => (
+                <div key={title} className="flex gap-4">
+                  <CheckCircle2 className="mt-1 shrink-0 text-[#C8A24A]" size={22} />
+                  <div><h3 className="font-semibold">{title}</h3><p className="mt-1 text-sm leading-6 text-[#777777]">{body}</p></div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="lg:w-1/2 relative order-1 lg:order-2">
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-indigo-600 rounded-3xl z-0"></div>
-            <img
-              src={STRATEGIC_WEALTH_IMAGE}
-              alt="Strategic Investment Wealth"
-              className="rounded-3xl shadow-2xl relative z-10 w-full object-cover aspect-video lg:aspect-square"
-            />
+          <div className="relative overflow-hidden rounded-2xl bg-[#111111]">
+            <img src={STRATEGIC_WEALTH_IMAGE} alt="Strategic investment" className="aspect-[4/3] w-full object-cover opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-8 sm:p-10"><p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#C8A24A]">VannieJay</p><p className="mt-2 text-2xl font-semibold text-white">The Gateway to Opportunity.</p></div>
           </div>
         </div>
       </section>
 
-      {/* Podcast Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 rounded-[2.5rem] p-12 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 overflow-hidden relative min-h-[500px]">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=1200"
-              alt="Podcast Background"
-              className="w-full h-full object-cover opacity-30"
-            />
-          </div>
-          <div className="lg:w-2/3 relative z-10 text-center lg:text-left">
-            <div className="inline-flex items-center px-4 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-bold uppercase tracking-widest mb-8 border border-indigo-500/30">
-              Insight & Analysis
+      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-2xl bg-[#111111] px-7 py-14 text-white sm:px-12 lg:px-16">
+          <div className="relative z-10 max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#C8A24A]">Insights</p>
+            <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Make better decisions with better information.</h2>
+            <p className="mt-5 text-lg leading-8 text-white/60">Explore our latest market perspectives, investment education and practical insights.</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link to="/resources" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-[#111111]">Explore insights <ArrowRight size={17} /></Link>
+              <a href={EXTERNAL_LINKS.podcast} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10"><PlayCircle size={18} /> Listen to the podcast</a>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">Investment Insights Podcast</h2>
-            <p className="text-slate-400 text-xl leading-relaxed mb-0">
-              Navigate the complexities of property marketing and international investment with our expert-led market briefings.
-            </p>
-          </div>
-          <div className="relative z-10">
-            <a
-              href={EXTERNAL_LINKS.podcast}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 flex items-center px-10 py-5 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition-all hover:scale-105 shadow-2xl"
-            >
-              <PlayCircle size={28} className="mr-3" />
-              Listen on Spotify
-            </a>
           </div>
         </div>
       </section>
 
+      <section className="border-t border-[#E5E5E5] bg-white py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#777777]">Start a conversation</p>
+          <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Tell us what you are trying to solve.</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-[#777777]">Whether you are exploring property, an investment opportunity or another service, start with the problem.</p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#111111] px-6 py-3 text-sm font-semibold text-white hover:bg-[#333333]"><MessageSquare size={18} /> WhatsApp VannieJay</a>
+            <Link to="/contact" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#111111] px-6 py-3 text-sm font-semibold text-[#111111] hover:bg-[#F4F4F4]">Contact us</Link>
+          </div>
+        </div>
+      </section>
       <BlogPreview />
-
-      {/* CTA Section */}
-      <section className="text-center py-24 bg-indigo-50 border-y border-indigo-100">
-        <h2 className="text-4xl font-extrabold mb-6 italic">Ready to Secure Your Growth?</h2>
-        <p className="text-slate-600 text-xl mb-12 max-w-2xl mx-auto font-light">
-          Partner with VannieJay for premium property solutions and strategic business support services.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <a
-            href={SOCIAL_LINKS.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-10 py-5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl transition-all shadow-xl hover:translate-y-[-2px]"
-          >
-            <MessageSquare size={22} className="mr-3" />
-            WhatsApp Inquiry
-          </a>
-          <Link
-            to="/contact"
-            className="inline-flex items-center px-10 py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all"
-          >
-            Contact Get Started
-          </Link>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 };
 
